@@ -1,33 +1,26 @@
 main.home
-	+lazyPicture({
-		src: `${baseDir}images/mem.jpg`,
-		alt: 'Мемчик',
-	}).home__picture#hello
+	//.loader
+		//img(src=`${baseDir}images/load.png`).loader__img
 
-	p.home__text#necessarily
-		| Это стартовый шаблон для верстки!
-		br
-		br
-		| Обязательно посмотри реализацию:
-		br
-		| pug в папке #[code pug/(components|pages)],
-		br
-		| js в папке #[code js/(components|modules|pages)],
-		br
-		| scss в папке #[code scss/(components|pages)]
-		br
-		br
-		| Не используемые части кода/компонентов можно просто отключить (удалять не рекомендуется)
-		br
-		br
-		| Не забывай читать #[a(href="https://github.com/ninelines-team/ninelines-docs" target="_blank") документацию]!
+	.container
+		+lazyPicture({ src: `${baseDir}images/avatar.png`, alt: 'Аватар' }).home__avatar#hello
 
-	//- picture.home__picture.home__picture--2#bye
-	+lazyPicture({
-		src: `${baseDir}images/mem-2.jpg`,
-		alt: 'Мемчик 2',
-	}, [
-		{
-			srcset: `${baseDir}images/mem-2.jpg`,
-		}
-	]).home__picture.home__picture--2#bye
+		.home__info
+			.home__info-item
+				h1.home__title
+					!= data.about.title
+				p.home__text
+					!= data.about.description
+
+			.home__info-item
+				.home__info-box
+					a.home__text(href="mailto:" + data.share.mail)
+						!= data.share.mail
+					a.home__text(href="tel:" + data.share.phone)
+						!= data.share.phone
+					p.home__text
+						!= data.share.city
+					.home__socials
+						each object, key in data.share.list
+							a.home__socials-item(href=object.link)
+								+svg(object.social)

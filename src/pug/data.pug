@@ -1,3 +1,4 @@
+<!-- eslint-disable -->
 -
 	const data = {
 		header: {
@@ -6,36 +7,94 @@
 			},
 			menu: [
 				{
-					url: '#hello',
-					name: 'Ну привет'
+					url: '#resume',
+					name: 'Резюме'
 				},
 				{
-					url: '#necessarily',
-					name: 'Обязательно к прочтению'
+					url: '#about',
+					name: 'О себе'
 				},
 				{
-					url: '#bye',
-					name: 'И пока'
+					url: '#skills',
+					name: 'Навыки'
 				}
 			]
 		},
 
-		share: {
-			caption: 'Поделиться:',
-			list: ['fb', 'tw', 'vk', 'ok'],
+		about: {
+			title: 'Денис,<br> HTML-верстальщик / Middle Front-end разработчик',
+			description: 'Как разработчик, я высоко ценю способность воплотить видение дизайнера в жизнь, что считаю очень полезным для бизнеса. Я получаю огромное удовлетворение, наблюдая за работой от идеи до дизайна, особенно когда она появляется в руках пользователя. Я считаю, что ориентированные на пользователя решения являются наиболее ценными цифровыми ресурсами будущего.',
 		},
 
-		home: {
-			title: 'гид&nbsp;по <br><span class="for-desktop">бережному</span><span class="for-devices">общению</span>',
-			read: 'Читать',
+		share: {
+			mail: 'glazunovden@yandex.ru',
+			phone: '+7 (915) 560-52-14',
+			city: 'г. Белгород',
+			list: [
+				{
+					social: 'fb',
+					link: 'https://www.facebook.com/den.glazunov'
+				},
+				{
+					social: 'vk',
+					link: 'https://vk.com/bk0831'
+				},
+				{
+					social: 'tg',
+					link: 'https://t.me/hiiragi0831'
+				}
+			],
 		},
+
+		experience: [
+			{
+				date: 'Июль 2019',
+				name: 'Freelance Designer',
+				education: ['1', '2', '3'],
+				city: 'Netherlands, Worldwide',
+				description: 'Available for a project or job in UX/UI, Visual and Product design.',
+			}
+		],
+
+		education: [
+			{
+				img: 'img/1.png',
+				title: 'Interface Design: Web & Mobile',
+				university: 'IT-Academy, 2020',
+			}
+		],
+
+		skill: [
+			{
+				title: 'Adobe Creative Suite',
+				description: 'Photoshop, Illustrator, InDesign, XD, After Effects'
+			},
+			{
+				title: 'Prototyping',
+				description: 'Sketch, Figma, InVision, Marvel, Principle, Balsamiq'
+			},
+			{
+				title: 'Additional',
+				description: 'HTML, CSS, Google Analytics, Keynote, Miro'
+			},
+			{
+				title: 'Languages',
+				description: 'Conversational English and Native Russian'
+			}
+		],
+
+		// home: {
+		// 	title: 'гид&nbsp;по <br><span class="for-desktop">бережному</span><span class="for-devices">общению</span>',
+		// 	read: 'Читать',
+		// },
 
 		modal: {
 			close: 'Закрыть',
 		},
 	};
 
-script.
-	window.data = {
-		home: !{JSON.stringify(data.home)},
-	};
+//script.
+//	window.data = {
+//		home: !{JSON.stringify(data.home)},
+//	};
+<!-- eslint-enable -->

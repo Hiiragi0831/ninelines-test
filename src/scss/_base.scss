@@ -25,11 +25,13 @@ html {
 }
 
 body {
+	font-family: $font-family-sf-pro-display;
 	-webkit-font-smoothing: antialiased;
 	text-decoration-skip: objects;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
+	background-color: $color-light-gray;
 }
 
 main {
@@ -137,8 +139,17 @@ iframe {
 	position: relative;
 	z-index: 1;
 	margin: 0 auto;
+	padding: 0 15px;
 	width: 100%;
 	max-width: 100%;
+
+	@include desktop {
+		padding: 0 150px;
+	}
+
+	@include desktop-xl {
+		max-width: 1800px;
+	}
 }
 
 .site {
