@@ -12,7 +12,7 @@ let errorHandler;
 let argv = yargs.default({
 	cache: true,
 	debug: true,
-	fix: false,
+	fix: true,
 	minifyHtml: null,
 	minifyCss: null,
 	minifyJs: null,
@@ -277,6 +277,9 @@ gulp.task('lint:scss', () => {
 	])
 		.pipe($.plumber({
 			errorHandler,
+		}))
+		.pipe($.eslint({
+			fix: argv.fix,
 		}))
 		.pipe($.postcss([
 			$.stylelint(),
