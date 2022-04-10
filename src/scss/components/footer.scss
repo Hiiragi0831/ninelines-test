@@ -1,17 +1,9 @@
 .footer {
 	display: flex;
-	margin-top: auto;
-	padding: 20px 30px;
-	width: 100%;
+	justify-content: center;
+	padding: 200px 0 50px;
 
-	&__developer {
-		margin-left: auto;
-		font-size: 12px;
-		line-height: 16px;
-	}
-
-	&__copy {
-		font-size: 12px;
-		line-height: 16px;
+	@include mobile {
+		padding: 40px 0;
 	}
 }

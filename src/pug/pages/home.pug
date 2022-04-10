@@ -1,26 +1,89 @@
-main.home
+main
 	//.loader
 		//img(src=`${baseDir}images/load.png`).loader__img
+	section.about
+		.container
+			+lazyPicture({ src: `${baseDir}images/avatar.png`, alt: 'Аватар' }).about__avatar#hello
 
-	.container
-		+lazyPicture({ src: `${baseDir}images/avatar.png`, alt: 'Аватар' }).home__avatar#hello
+			.about__info
+				.about__info-item
+					h1.about__title
+						!= data.about.title
+					p.about__text
+						!= data.about.description
 
-		.home__info
-			.home__info-item
-				h1.home__title
-					!= data.about.title
-				p.home__text
-					!= data.about.description
+				.about__info-item
+					.about__info-box
+						a.about__text(href="mailto:" + data.share.mail)
+							!= data.share.mail
+						a.about__text(href="tel:" + data.share.phone)
+							!= data.share.phone
+						p.about__text!= data.share.city
+						.about__socials
+							each object in data.share.list
+								a.about__socials-item(href=object.link _blank)
+									+svg(object.social)
 
-			.home__info-item
-				.home__info-box
-					a.home__text(href="mailto:" + data.share.mail)
-						!= data.share.mail
-					a.home__text(href="tel:" + data.share.phone)
-						!= data.share.phone
-					p.home__text
-						!= data.share.city
-					.home__socials
-						each object, key in data.share.list
-							a.home__socials-item(href=object.link)
-								+svg(object.social)
+			.line.line__one
+				+lazyPicture({ src: `${baseDir}images/line1.png`})
+
+	section.skills
+		.container
+			.skills__row
+				.skills__col
+					h2.skills__title Опыт работы
+					each object in data.experience
+						.skills__experience
+							.skills__experience-date
+								!= object.date
+							.skills__experience-box
+								.skills__experience-title
+									!= object.title
+								.skills__experience-rhombs
+									each color in object.education
+										.skills__experience-romb(class='is-'+ color)
+							.skills__experience-box
+								if (object.logo)
+									.skills__experience-logo
+										+lazyPicture({src: `${baseDir}images/` + object.logo + `.png`})
+								.skills__experience-city
+									!= object.city
+							.skills__experience-description
+								!= object.description
+							if (object.links)
+								each link in object.links
+									a.skills__experience-link(href= link.href _blank)!= link.title
+
+				.skills__col
+					.skills__image
+						+lazyPicture({ src: `${baseDir}images/coin.png`})
+
+				.skills__col
+					h2.skills__title.skills__education-head Образование
+					.skills__box
+						each object in data.education
+							.skills__education
+								.skills__education-box
+									.skills__education-rhombs
+										each item in object.colors
+											if (item.select === 1)
+												.skills__education-rhomb.is-select(class='is-'+ item.color)
+											else
+												.skills__education-rhomb(class='is-'+ item.color)
+								.skills__education-title
+									!= object.title
+								.skills__education-description
+									!= object.university
+
+			.line.line__two
+				+lazyPicture({src: `${baseDir}images/line2.png`})
+	section.skill
+		.container
+			h2.skill__head Навыки
+			.skill__row
+				each object in data.skill
+					.skill__item
+						.skill__title
+							!= object.title
+						.skill__description
+							!= object.description

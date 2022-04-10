@@ -1,4 +1,4 @@
-.home {
+.about {
 	&__avatar {
 		display: block;
 		margin: -21px 0 40px;
@@ -9,6 +9,11 @@
 		&[data-loaded="true"] {
 			opacity: 1;
 		}
+
+		@include mobile {
+			margin: -49px 0 30px;
+			max-width: 80px;
+		}
 	}
 
 	&__info {
@@ -18,12 +23,24 @@
 			display: flex;
 			flex-direction: column;
 			width: calc(100% / 2);
+
+			@include mobile {
+				width: 100%;
+			}
 		}
 
 		&-box {
 			display: flex;
 			flex-direction: column;
 			align-self: center;
+
+			@include mobile {
+				align-self: self-start;
+			}
+		}
+
+		@include mobile {
+			flex-direction: column;
 		}
 	}
 
@@ -35,11 +52,14 @@
 	}
 
 	&__text {
-		margin-bottom: 10px;
 		font-weight: 400;
 		font-size: 14px;
 		line-height: 140%;
 		color: $color-dark;
+
+		@include mobile {
+			margin-bottom: 20px;
+		}
 	}
 
 	&__socials {
@@ -50,6 +70,8 @@
 			margin-right: 20px;
 
 			svg {
+				display: inline-block;
+				vertical-align: middle;
 				width: 25px;
 				height: 25px;
 			}
@@ -58,5 +80,306 @@
 				margin-right: 0;
 			}
 		}
+	}
+}
+
+.skills {
+	position: relative;
+
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	&__col {
+		width: calc(50% / 2);
+
+		&:first-child {
+			width: 50%;
+		}
+
+		@include mobile {
+			width: 100%;
+
+			&:first-child {
+				width: 100%;
+			}
+		}
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+
+		@include mobile {
+			flex-flow: wrap;
+			flex-direction: row;
+			margin: 0 -10px;
+		}
+	}
+
+	&__title {
+		margin-top: 0;
+		margin-bottom: 30px;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 29px;
+
+		@include mobile {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__image {
+		position: sticky;
+		top: 0;
+		display: flex;
+		justify-content: center;
+
+		picture {
+			max-width: 100%;
+		}
+
+		@include mobile {
+			margin: 40px auto;
+
+			picture {
+				max-width: 121px;
+			}
+		}
+	}
+
+	&__experience {
+		margin-bottom: 60px;
+
+		&-date {
+			margin-bottom: 8px;
+			font-size: 14px;
+			line-height: 17px;
+			color: $color-dark-gray;
+		}
+
+		&-box {
+			display: flex;
+			align-items: center;
+			margin-bottom: 8px;
+		}
+
+		&-city {
+			font-size: 14px;
+			line-height: 17px;
+		}
+
+		&-title {
+			margin-right: 12px;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 17px;
+		}
+
+		&-description {
+			margin-bottom: 3px;
+			font-size: 14px;
+			line-height: 17px;
+		}
+
+		&-link {
+			font-size: 14px;
+			line-height: 17px;
+			text-decoration-line: underline;
+			color: $color-blue-dark;
+		}
+
+		&-logo {
+			overflow: hidden;
+			margin-right: 8px;
+			border-radius: 100%;
+			width: 30px;
+			height: 30px;
+
+			picture {
+				line-height: 30px;
+			}
+		}
+
+		&-rhombs {
+			display: flex;
+			flex-flow: row-reverse;
+		}
+
+		&-romb {
+			margin-left: -2px;
+			border-radius: 2px;
+			width: 12px;
+			height: 12px;
+			transform: rotate(-45deg);
+
+			&.is-purple {
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-purple-light 0deg, $color-purple 360deg);
+			}
+
+			&.is-yellow {
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-yellow-light 0deg, $color-yellow 360deg);
+			}
+
+			&.is-blue {
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-blue-light 0deg, $color-blue 360deg);
+			}
+
+			&.is-pink {
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-pink-light 0deg, $color-pink 360deg);
+			}
+
+			&.is-orange {
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-orange-light 0deg, $color-orange 360deg);
+			}
+
+			&.is-green {
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-green-light 0deg, $color-green 360deg);
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__education {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 30px;
+		max-width: 190px;
+
+		&-head {
+			text-align: center;
+		}
+
+		&-box {
+			display: flex;
+			justify-content: center;
+		}
+
+		&-rhombs {
+			display: flex;
+			align-items: center;
+		}
+
+		&-rhomb {
+			border-radius: 4px;
+			width: 20px;
+			height: 20px;
+			box-sizing: border-box;
+			transform: rotate(-45deg);
+
+			&.is-select {
+				z-index: 1;
+				margin: 0 -5px;
+				border-radius: 8px;
+				width: 30px;
+				height: 30px;
+			}
+
+			&.is-purple {
+				border: 4px solid $color-purple-light-alt;
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-purple-light 0deg, $color-purple 360deg);
+			}
+
+			&.is-yellow {
+				border: 4px solid $color-yellow-light-alt;
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-yellow-light 0deg, $color-yellow 360deg);
+			}
+
+			&.is-blue {
+				border: 4px solid $color-blue-light-alt;
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-blue-light 0deg, $color-blue 360deg);
+			}
+
+			&.is-pink {
+				border: 4px solid $color-pink-light-alt;
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-pink-light 0deg, $color-pink 360deg);
+			}
+
+			&.is-orange {
+				border: 4px solid $color-orange-light-alt;
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-orange-light 0deg, $color-orange 360deg);
+			}
+
+			&.is-green {
+				border: 4px solid $color-green-light-alt;
+				background: conic-gradient(from 225deg at 94.19% 5.24%, $color-green-light 0deg, $color-green 360deg);
+			}
+		}
+
+		&-title {
+			margin: 5px 0;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 140%;
+			text-align: center;
+		}
+
+		&-description {
+			font-size: 14px;
+			line-height: 140%;
+			text-align: center;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		@include mobile {
+			margin-bottom: 10px;
+			padding: 10px;
+			width: 50%;
+		}
+	}
+}
+
+.skill {
+	&__head {
+		margin-top: 0;
+		margin-bottom: 30px;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 29px;
+
+		@include mobile {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__row {
+		display: flex;
+		margin: 0 -10px;
+
+		@include mobile {
+			flex-direction: column;
+		}
+	}
+
+	&__item {
+		padding: 0 10px;
+		width: calc(100% / 4);
+
+		@include mobile {
+			padding: 0 10px 20px;
+			width: 100%;
+		}
+	}
+
+	&__title {
+		margin-bottom: 6px;
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 17px;
+	}
+
+	&__description {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 140%;
 	}
 }
