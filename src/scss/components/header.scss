@@ -1,9 +1,59 @@
 .header {
-	position: relative;
-	padding-top: 100px;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+
+	&__row {
+		display: flex;
+		padding-top: 100px;
+		background-color: $color-light-gray;
+	}
+
+	&__avatar {
+		display: block;
+		flex-shrink: 0;
+		width: 150px;
+		opacity: 0;
+		transition: $duration-normal;
+
+		&[data-loaded="true"] {
+			opacity: 1;
+		}
+
+		@include mobile {
+			z-index: -1;
+			max-width: 80px;
+		}
+	}
 
 	&__menu {
 		width: 100%;
+
+		&-mobile {
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 98;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			overflow: hidden;
+			overflow-y: auto;
+			width: 100vw;
+			height: calc(var(--vh));
+			background-color: $color-light-gray;
+			opacity: 0;
+			transition: opacity $duration-normal;
+
+			&.is-active {
+				opacity: 1;
+			}
+		}
+
+		@include mobile {
+			display: none;
+		}
 	}
 
 	&__list {
@@ -26,8 +76,25 @@
 			margin-right: 0;
 		}
 
+		&.is-active {
+			position: relative;
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: -28px;
+				top: -91px;
+				z-index: -1;
+				width: 106px;
+				height: 156px;
+				background-image: url("../images/active.png");
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+
 		@include hover {
-			color: $color-black;
+			color: $color-pink;
 		}
 
 		@include active {
@@ -39,6 +106,7 @@
 		z-index: 100;
 		display: none;
 		flex-direction: column;
+		margin-top: 10px;
 		margin-left: auto;
 		width: 26px;
 		color: $color-black;
@@ -63,7 +131,11 @@
 				}
 
 				&:last-child {
-					transform: translate(0, -6px) rotate(45deg);
+					transform: translate(0, -8px) rotate(45deg);
+				}
+
+				&:nth-child(2) {
+					opacity: 0;
 				}
 			}
 		}
@@ -73,7 +145,36 @@
 		}
 	}
 
+	&__mobile {
+		display: flex;
+		flex-direction: column;
+
+		&-list {
+			display: flex;
+			flex-direction: column;
+			margin: 30px 40px 0;
+		}
+
+		&-link {
+			margin-bottom: 40px;
+			font-weight: 700;
+			font-size: 26px;
+			line-height: 31px;
+
+			&:last-child {
+				margin-bottom: 20px;
+			}
+		}
+
+		&-img {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+	}
+
 	@include mobile {
-		padding-top: 30px;
+		position: fixed;
+		padding-top: 20px;
 	}
 }

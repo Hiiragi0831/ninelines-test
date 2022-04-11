@@ -1,15 +1,44 @@
-header.header
+header.header(data-scroll-section)
 	.container
-		nav.header__menu
-			.header__list
-				each object, key in data.header.menu
-					a.header__link.js-to-anchor(
-						href=object.url
-						data-link=key
-					)
-						!= object.name
+		.header__row(
+			data-scroll, data-scroll-sticky, data-scroll-target="#top")
+			+lazyPicture({src: `${baseDir}images/avatar.png`, alt: 'Аватар'}).header__avatar#hello
 
-		button.header__burger.btn.js-burger(type="button")
-			span
-			span
-			span
+			nav.header__menu#desktop-menu
+				.header__list
+					each object, key in data.header.menu
+						if (key === 0)
+							a.header__link.is-active(
+								href=object.url
+								data-link=key
+							)
+								!= object.name
+						else
+							a.header__link(
+								href=object.url
+								data-link=key
+							)
+								!= object.name
+
+			button.header__burger.btn.js-burger(type="button")
+				span
+				span
+				span
+
+			nav.header__menu-mobile.is-hidden#mobile-menu
+				.header__mobile-list
+					each object, key in data.header.menu
+						if (key === 0)
+							a.header__mobile-link.is-active(
+								href=object.url
+								data-link=key
+							)
+								!= object.name
+						else
+							a.header__mobile-link(
+								href=object.url
+								data-link=key
+							)
+								!= object.name
+				.header__mobile-img
+					+lazyPicture({src: `${baseDir}images/time.png`})

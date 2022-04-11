@@ -23,7 +23,7 @@ const init = () => {
 * Тригер для загрузки изображений до того, как оно появится в наблюдателе области просмотра
 * @param {string} img Обязательное, элемент img
 */
-const trigger = (img) => {
+export const trigger = (img) => {
 	observer.triggerLoad(img);
 };
 

@@ -1,20 +1,5 @@
 .about {
-	&__avatar {
-		display: block;
-		margin: -21px 0 40px;
-		max-width: 150px;
-		opacity: 0;
-		transition: $duration-normal;
-
-		&[data-loaded="true"] {
-			opacity: 1;
-		}
-
-		@include mobile {
-			margin: -49px 0 30px;
-			max-width: 80px;
-		}
-	}
+	margin-top: 40px;
 
 	&__info {
 		display: flex;
@@ -32,10 +17,10 @@
 		&-box {
 			display: flex;
 			flex-direction: column;
-			align-self: center;
+			margin: 0 auto;
 
 			@include mobile {
-				align-self: self-start;
+				margin: 0;
 			}
 		}
 
@@ -80,6 +65,10 @@
 				margin-right: 0;
 			}
 		}
+	}
+
+	@include mobile {
+		margin-top: 130px;
 	}
 }
 
@@ -127,12 +116,14 @@
 
 		@include mobile {
 			margin-bottom: 20px;
+			font-size: 20px;
+			line-height: 24px;
 		}
 	}
 
 	&__image {
 		position: sticky;
-		top: 0;
+		top: 250px;
 		display: flex;
 		justify-content: center;
 
@@ -254,6 +245,10 @@
 
 		&-head {
 			text-align: center;
+
+			@include mobile {
+				text-align: left;
+			}
 		}
 
 		&-box {
@@ -348,6 +343,8 @@
 
 		@include mobile {
 			margin-bottom: 20px;
+			font-size: 22px;
+			line-height: 26px;
 		}
 	}
 
@@ -367,6 +364,10 @@
 		@include mobile {
 			padding: 0 10px 20px;
 			width: 100%;
+
+			&:last-child {
+				padding-bottom: 0;
+			}
 		}
 	}
 
@@ -382,4 +383,9 @@
 		font-size: 14px;
 		line-height: 140%;
 	}
+}
+
+.c-scrollbar {
+	z-index: 9999;
+	height: 100vh;
 }

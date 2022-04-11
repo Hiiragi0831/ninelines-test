@@ -1,12 +1,10 @@
-main
-	//.loader
-		//img(src=`${baseDir}images/load.png`).loader__img
-	section.about
-		.container
-			+lazyPicture({ src: `${baseDir}images/avatar.png`, alt: 'Аватар' }).about__avatar#hello
-
+main.main
+	.loader
+		img.loader__img(src="./images/load.png" alt="ddd")
+	section.about.js-scrollspy(data-scroll-section)
+		.container#resume
 			.about__info
-				.about__info-item
+				.about__info-item.is-inview
 					h1.about__title
 						!= data.about.title
 					p.about__text
@@ -25,10 +23,11 @@ main
 									+svg(object.social)
 
 			.line.line__one
-				+lazyPicture({ src: `${baseDir}images/line1.png`})
+				+lazyPicture({ src: `${baseDir}images/line1.png`}).line__pc
+				+lazyPicture({src: `${baseDir}images/line1m.png`}).line__mobile
 
-	section.skills
-		.container
+	section.skills.js-scrollspy(data-scroll-section)
+		.container#about
 			.skills__row
 				.skills__col
 					h2.skills__title Опыт работы
@@ -55,7 +54,7 @@ main
 									a.skills__experience-link(href= link.href _blank)!= link.title
 
 				.skills__col
-					.skills__image
+					.skills__image(data-scroll data-scroll-sticky data-scroll-target="#about")
 						+lazyPicture({ src: `${baseDir}images/coin.png`})
 
 				.skills__col
@@ -76,9 +75,10 @@ main
 									!= object.university
 
 			.line.line__two
-				+lazyPicture({src: `${baseDir}images/line2.png`})
-	section.skill
-		.container
+				+lazyPicture({src: `${baseDir}images/line2.png`}).line__pc
+				+lazyPicture({src: `${baseDir}images/line2m.png`}).line__mobile
+	section.skill.js-scrollspy(data-scroll-section)
+		.container#skills
 			h2.skill__head Навыки
 			.skill__row
 				each object in data.skill
@@ -87,3 +87,4 @@ main
 							!= object.title
 						.skill__description
 							!= object.description
+		a.top.js-to-anchor(href="#top")
