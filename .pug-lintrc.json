@@ -22,10 +22,7 @@
 	],
 	"requireStrictEqualityOperators": true,
 	"validateAttributeQuoteMarks": "\"",
-	"validateAttributeSeparator": {
-		"separator": " ",
-		"multiLineSeparator": "\n\t"
-	},
+
 	"validateDivTags": true,
 	"validateIndentation": "\t",
 	"validateLineBreaks": "LF",

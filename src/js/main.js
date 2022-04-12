@@ -20,13 +20,6 @@ lazyLoading.init();
 helpers.lockScroll(true, $('.loader'), 'loader');
 
 function ready() {
-	scrollSpy('#desktop-menu', {
-		sectionClass: '.js-scrollspy',
-		menuActiveTarget: '.header__link',
-		activeClass: 'is-active',
-		offset: 600,
-	});
-
 	scrollSpy('#mobile-menu', {
 		sectionClass: '.js-scrollspy',
 		menuActiveTarget: '.header__mobile-link',
@@ -34,12 +27,7 @@ function ready() {
 		offset: 300,
 	});
 
-	const coolImage = document.querySelectorAll('.lozad');
-	for (let item of coolImage) {
-		lazyLoading.trigger(item);
-	}
-
-	const scroll = new LocomotiveScroll({
+	const locomotive = new LocomotiveScroll({
 		el: document.querySelector('.site'),
 		smooth: true,
 	});
@@ -56,7 +44,7 @@ function ready() {
 
 			header.closeMenu().then(() => {
 				$('.js-burger').removeClass('is-active');
-				scroll.scrollTo(target);
+				locomotive.scrollTo(target);
 			});
 		});
 	});
@@ -70,7 +58,13 @@ Preloader.init([
 	'/images/footer.png',
 ])
 	.then(() => {
+		const coolImage = document.querySelectorAll('.lozad');
 		const loader = $('.loader');
+
+		for (let item of coolImage) {
+			lazyLoading.trigger(item);
+		}
+
 		loader.css('display', 'none');
 		helpers.lockScroll(false, loader, 'loader');
 		ready();

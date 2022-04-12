@@ -1,4 +1,4 @@
-main.main
+main.home
 	.loader
 		img.loader__img(src="./images/load.png" alt="ddd")
 	section.about.js-scrollspy(data-scroll-section)
@@ -54,7 +54,7 @@ main.main
 									a.skills__experience-link(href= link.href _blank)!= link.title
 
 				.skills__col
-					.skills__image(data-scroll data-scroll-sticky data-scroll-target="#about")
+					.skills__image(data-scroll data-scroll-sticky data-scroll-target="#about" data-scroll-position="bottom" data-scroll-offset="-250")
 						+lazyPicture({ src: `${baseDir}images/coin.png`})
 
 				.skills__col
@@ -87,4 +87,4 @@ main.main
 							!= object.title
 						.skill__description
 							!= object.description
-		a.top.js-to-anchor(href="#top")
+	a.top(href="#resume" data-scroll-to)
