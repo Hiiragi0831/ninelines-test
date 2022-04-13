@@ -1,6 +1,8 @@
 extends pug/base
 prepend vars
-	//-
+	- var title = 'Денис, HTML-верстальщик / Middle Front-end разработчик'
+	- var description = 'Работаю верстальщиком с 2017 года. Натягиваю версту на CMS, в основном на MODX и Wordpress. При верстке использую: бэм, pug, scss, postcss, js, webpack, git. Двигаюсь по направлению vuejs, reactjs. На данный момент времени прохожу обучение vuejs.'
+	- var image = './image/share.png'
 
 append vars
 	//-
@@ -8,7 +10,7 @@ append vars
 block content
 	include pug/data
 
-	.site#top(data-scroll-container)
+	.site(data-scroll-container)
 		include pug/components/header
 
 		include pug/pages/home

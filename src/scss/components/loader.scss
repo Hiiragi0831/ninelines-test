@@ -16,13 +16,15 @@
 
 	&__img {
 		position: absolute;
-		transform: translate(-65vw, 75vh);
-		transition: transform ease 3s;
-	}
+		left: -592px;
+		bottom: -592px;
+		width: 591px;
+		height: 591px;
+		transition: all $easing-in $duration-normal;
 
-	&:hover {
-		#{$block-name}__img {
-			transform: translate(66vw, -73vh);
+		@include mobile {
+			width: 90vw;
+			height: 90vw;
 		}
 	}
 }

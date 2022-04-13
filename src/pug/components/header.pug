@@ -1,23 +1,18 @@
-header.header(data-scroll-section)
+header.header(data-scroll-sticky)
 	.container
-		.header__row(data-scroll, data-scroll-sticky, data-scroll-target="#top")
+		.header__row
 			+lazyPicture({src: `${baseDir}images/avatar.png`, alt: 'Аватар'}).header__avatar#hello
 
 			nav.header__menu#desktop-menu
 				.header__list
 					each object, key in data.header.menu
-						if (key === 0)
-							a.header__link.is-active(
-								href=object.url
-								data-link=key
-							)
-								!= object.name
-						else
-							a.header__link(
-								href=object.url
-								data-link=key
-							)
-								!= object.name
+						a.header__link(
+							href=object.url
+							data-link=key
+							data-scroll-to
+							data-scroll-id=object.id
+						)
+							!= object.name
 
 			button.header__burger.btn.js-burger(type="button")
 				span
@@ -27,17 +22,12 @@ header.header(data-scroll-section)
 			nav.header__menu-mobile.is-hidden#mobile-menu
 				.header__mobile-list
 					each object, key in data.header.menu
-						if (key === 0)
-							a.header__mobile-link.is-active(
-								href=object.url
-								data-link=key
-							)
-								!= object.name
-						else
-							a.header__mobile-link(
-								href=object.url
-								data-link=key
-							)
-								!= object.name
+						a.header__mobile-link(
+							href=object.url
+							data-link=key
+							data-scroll-to
+							data-scroll-id=object.id
+						)
+							!= object.name
 				.header__mobile-img
 					+lazyPicture({src: `${baseDir}images/time.png`})

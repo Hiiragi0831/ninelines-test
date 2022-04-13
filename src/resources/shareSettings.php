@@ -2,9 +2,9 @@
 
 $protocol = $_SERVER['PROTOCOL'] = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
 $host = $protocol . '://' . $_SERVER['HTTP_HOST'];
-$title = '';
-$description = '';
-$image = $host . '/images/';
+$title = 'Денис, HTML-верстальщик / Middle Front-end разработчик';
+$description = 'Работаю верстальщиком с 2017 года. Натягиваю версту на CMS, в основном на MODX и Wordpress. При верстке использую: бэм, pug, scss, postcss, js, webpack, git. Двигаюсь по направлению vuejs, reactjs. На данный момент времени прохожу обучение vuejs.';
+$image = $host . '/images/share.png';
 
 // Uncomment the code below and fill in the pages if necessary
 // $pages = [

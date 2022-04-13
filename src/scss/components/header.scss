@@ -1,13 +1,11 @@
 .header {
-	position: sticky;
-	top: 0;
 	z-index: 10;
+	padding-top: 100px;
 	width: 100%;
+	background-color: $color-light-gray;
 
 	&__row {
 		display: flex;
-		padding-top: 100px;
-		background-color: $color-light-gray;
 	}
 
 	&__avatar {
@@ -77,8 +75,13 @@
 			margin-right: 0;
 		}
 
-		&.is-active {
+		@include hover {
+			color: $color-pink;
+		}
+
+		@include active {
 			position: relative;
+			color: $color-black;
 
 			&::before {
 				content: "";
@@ -92,14 +95,6 @@
 				background-position: center;
 				background-repeat: no-repeat;
 			}
-		}
-
-		@include hover {
-			color: $color-pink;
-		}
-
-		@include active {
-			color: $color-black;
 		}
 	}
 
@@ -164,6 +159,24 @@
 
 			&:last-child {
 				margin-bottom: 20px;
+			}
+
+			@include active {
+				position: relative;
+				color: $color-black;
+
+				&::before {
+					content: "";
+					position: absolute;
+					left: 20px;
+					top: -25px;
+					z-index: -1;
+					width: 48px;
+					height: 70px;
+					background-image: url("../images/activeM.png");
+					background-position: center;
+					background-repeat: no-repeat;
+				}
 			}
 		}
 

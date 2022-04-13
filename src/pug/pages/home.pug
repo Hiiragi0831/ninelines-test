@@ -1,13 +1,13 @@
 main.home
 	.loader
 		img.loader__img(src="./images/load.png" alt="ddd")
-	section.about.js-scrollspy(data-scroll-section)
+	section.about.js-scrollspy#top(data-scroll-section)
 		.container#resume
 			.about__info
-				.about__info-item.is-inview
+				.about__info-item(data-scroll data-scroll-repeat data-scroll-call="toggleResume")
 					h1.about__title
 						!= data.about.title
-					p.about__text
+					p.about__text(data-scroll data-scroll-offset="200")
 						!= data.about.description
 
 				.about__info-item
@@ -19,24 +19,24 @@ main.home
 						p.about__text!= data.share.city
 						.about__socials
 							each object in data.share.list
-								a.about__socials-item(href=object.link _blank)
+								a.about__socials-item(href=object.link _blank data-social=object.social)
 									+svg(object.social)
 
 			.line.line__one
 				+lazyPicture({ src: `${baseDir}images/line1.png`}).line__pc
 				+lazyPicture({src: `${baseDir}images/line1m.png`}).line__mobile
 
-	section.skills.js-scrollspy(data-scroll-section)
-		.container#about
+	section.skills.js-scrollspy#about(data-scroll-section data-scroll-id="about")
+		.container
 			.skills__row
 				.skills__col
-					h2.skills__title Опыт работы
+					h2.skills__title(data-scroll data-scroll-repeat data-scroll-call="toggleAbout") Опыт работы
 					each object in data.experience
 						.skills__experience
 							.skills__experience-date
 								!= object.date
 							.skills__experience-box
-								.skills__experience-title
+								.skills__experience-title.is-yellow.is-blue
 									!= object.title
 								.skills__experience-rhombs
 									each color in object.education
@@ -53,8 +53,8 @@ main.home
 								each link in object.links
 									a.skills__experience-link(href= link.href _blank)!= link.title
 
-				.skills__col
-					.skills__image(data-scroll data-scroll-sticky data-scroll-target="#about" data-scroll-position="bottom" data-scroll-offset="-250")
+				.skills__col#sticky-img
+					.skills__image(data-scroll data-scroll-sticky data-scroll-target="#sticky-img")
 						+lazyPicture({ src: `${baseDir}images/coin.png`})
 
 				.skills__col
@@ -77,9 +77,10 @@ main.home
 			.line.line__two
 				+lazyPicture({src: `${baseDir}images/line2.png`}).line__pc
 				+lazyPicture({src: `${baseDir}images/line2m.png`}).line__mobile
+
 	section.skill.js-scrollspy(data-scroll-section)
 		.container#skills
-			h2.skill__head Навыки
+			h2.skill__head(data-scroll data-scroll-repeat data-scroll-call="toggleSkills") Навыки
 			.skill__row
 				each object in data.skill
 					.skill__item
@@ -87,4 +88,9 @@ main.home
 							!= object.title
 						.skill__description
 							!= object.description
-	a.top(href="#resume" data-scroll-to)
+	a.top(href="#top" data-scroll-to)
+		.top__percent 0 %
+		+svg('arrow-top').top__arrow.is-hidden
+		svg.top__svg(width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg")
+			circle.top__ring-one(cx="20" cy="20" r="19.5" stroke="white" stroke-opacity="1")
+			circle.top__ring-active(cx="20" cy="20" r="19.5" stroke="white" stroke-opacity="1")

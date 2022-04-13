@@ -7,6 +7,7 @@ $color-gray: #eee;
 $color-light-gray: #fafafa;
 $color-dark-gray: #828282;
 $color-dark: #282a33;
+$color-red: #d2233c;
 $color-blue-dark: #2f80ed;
 $color-purple: #938df8;
 $color-purple-light: #aea9fe;
@@ -38,6 +39,7 @@ $easing-back-out: cubic-bezier(0.25, 0.74, 0.22, 1.1); // http://cubic-bezier.co
 $easing-back-in: cubic-bezier(0.47, -0.1, 0.5, -0.06); // http://cubic-bezier.com/#.47,-0.1,.5,-.06
 $easing-out: ease-out;
 $easing-in: ease-in;
+$easing-in: linear;
 
 // Settings
 $mobile: 320;

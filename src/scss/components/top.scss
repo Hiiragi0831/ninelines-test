@@ -3,7 +3,56 @@
 	right: 25px;
 	bottom: 25px;
 	z-index: 1;
+	display: flex;
+	align-items: center;
 	width: 48px;
 	height: 48px;
-	background-color: #282a33;
+
+	&__arrow {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin-right: auto;
+		margin-left: auto;
+		padding: 12px;
+		fill: transparent;
+		transition: display $duration-normal;
+	}
+
+	&__percent {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin-right: auto;
+		margin-left: auto;
+		font-size: 14px;
+		line-height: 100%;
+		text-align: center;
+		color: $color-dark;
+		transition: display $duration-normal;
+	}
+
+	&__svg {
+		fill: transparent;
+	}
+
+	&__ring {
+		&-one {
+			stroke: $color-dark;
+		}
+
+		&-active {
+			stroke: $color-red;
+			stroke-dasharray: 122.46px;
+			stroke-dashoffset: 122.46px;
+			transform: rotate(-90deg);
+			transform-origin: center center;
+			transition: stroke-dashoffset $duration-normal;
+		}
+	}
+
+	@include mobile {
+		right: 20px;
+		bottom: 20px;
+	}
 }
