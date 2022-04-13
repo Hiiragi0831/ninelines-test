@@ -8,6 +8,17 @@
 	opacity: 0;
 }
 
+.is-animate {
+	opacity: 0;
+	transform: translateY(25px);
+	transition: transform 1s $easing-back-in, opacity 1s $easing-back-in;
+}
+
+.is-inview {
+	opacity: 1;
+	transform: translateY(0);
+}
+
 .for-desktop {
 	@include devices {
 		// stylelint-disable-next-line declaration-no-important

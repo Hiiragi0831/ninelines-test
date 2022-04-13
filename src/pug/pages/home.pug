@@ -5,12 +5,12 @@ main.home
 		.container#resume
 			.about__info
 				.about__info-item(data-scroll data-scroll-repeat data-scroll-call="toggleResume")
-					h1.about__title
+					h1.about__title.is-animate(data-scroll data-scroll-offset="200")
 						!= data.about.title
-					p.about__text(data-scroll data-scroll-offset="200")
+					p.about__text.is-animate(data-scroll data-scroll-offset="200")
 						!= data.about.description
 
-				.about__info-item
+				.about__info-item.is-animate(data-scroll data-scroll-offset="200")
 					.about__info-box
 						a.about__text(href="mailto:" + data.share.mail)
 							!= data.share.mail
@@ -22,13 +22,13 @@ main.home
 								a.about__socials-item(href=object.link _blank data-social=object.social)
 									+svg(object.social)
 
-			.line.line__one
+			.line.line__one.is-animate(data-scroll data-scroll-offset="200")
 				+lazyPicture({ src: `${baseDir}images/line1.png`}).line__pc
 				+lazyPicture({src: `${baseDir}images/line1m.png`}).line__mobile
 
 	section.skills.js-scrollspy#about(data-scroll-section data-scroll-id="about")
 		.container
-			.skills__row
+			.skills__row.is-animate(data-scroll data-scroll-offset="200")
 				.skills__col
 					h2.skills__title(data-scroll data-scroll-repeat data-scroll-call="toggleAbout") Опыт работы
 					each object in data.experience
@@ -54,7 +54,7 @@ main.home
 									a.skills__experience-link(href= link.href _blank)!= link.title
 
 				.skills__col#sticky-img
-					.skills__image(data-scroll data-scroll-sticky data-scroll-target="#sticky-img")
+					.skills__image(data-scroll data-scroll-sticky data-scroll-target="#sticky-img" data-scroll-offset="-300")
 						+lazyPicture({ src: `${baseDir}images/coin.png`})
 
 				.skills__col
@@ -74,12 +74,12 @@ main.home
 								.skills__education-description
 									!= object.university
 
-			.line.line__two
+			.line.line__two.is-animate(data-scroll data-scroll-offset="200")
 				+lazyPicture({src: `${baseDir}images/line2.png`}).line__pc
 				+lazyPicture({src: `${baseDir}images/line2m.png`}).line__mobile
 
 	section.skill.js-scrollspy(data-scroll-section)
-		.container#skills
+		.container.is-animate#skills(data-scroll data-scroll-offset="200")
 			h2.skill__head(data-scroll data-scroll-repeat data-scroll-call="toggleSkills") Навыки
 			.skill__row
 				each object in data.skill

@@ -42,17 +42,9 @@
 		font-size: 14px;
 		line-height: 140%;
 		color: $color-dark;
-		opacity: 0;
-		transform: translateY(40px);
-		transition: transform 1s $easing-back-in, opacity 1s $easing-back-in;
 
 		&:last-child {
 			margin-bottom: 0;
-		}
-
-		&.is-inview {
-			opacity: 1;
-			transform: translateY(0);
 		}
 
 		@include mobile {
@@ -96,6 +88,11 @@
 	&__col {
 		position: relative;
 		width: calc(50% / 2);
+
+		&#sticky-img {
+			display: flex;
+			justify-content: center;
+		}
 
 		&:first-child {
 			width: 50%;
@@ -143,11 +140,19 @@
 			max-width: 100%;
 		}
 
+		&.is-inview {
+			position: absolute;
+		}
+
 		@include mobile {
 			margin: 40px auto;
 
 			picture {
 				max-width: 121px;
+			}
+
+			&.is-inview {
+				position: relative;
 			}
 		}
 	}
