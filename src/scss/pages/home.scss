@@ -1,5 +1,6 @@
 .about {
-	padding-top: 40px;
+	margin-top: -250px;
+	padding-top: 290px;
 
 	&__info {
 		display: flex;
@@ -79,6 +80,8 @@
 
 .skills {
 	position: relative;
+	margin-top: -250px;
+	padding-top: 250px;
 
 	&__row {
 		display: flex;
@@ -351,6 +354,9 @@
 }
 
 .skill {
+	margin-top: -250px;
+	padding-top: 250px;
+
 	&__head {
 		margin-top: 0;
 		margin-bottom: 30px;

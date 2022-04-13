@@ -1,13 +1,13 @@
 main.home
 	.loader
 		img.loader__img(src="./images/load.png" alt="ddd")
-	section.about.js-scrollspy#top(data-scroll-section)
-		.container#resume
+	section.about.js-scrollspy#resume(data-scroll-section)
+		.container
 			.about__info
-				.about__info-item(data-scroll data-scroll-repeat data-scroll-call="toggleResume")
-					h1.about__title.is-animate(data-scroll data-scroll-offset="200")
+				.about__info-item.is-animate(data-scroll data-scroll-offset="200")
+					h1.about__title(data-scroll data-scroll-repeat data-scroll-call="toggleResume" data-scroll-offset="200")
 						!= data.about.title
-					p.about__text.is-animate(data-scroll data-scroll-offset="200")
+					p.about__text
 						!= data.about.description
 
 				.about__info-item.is-animate(data-scroll data-scroll-offset="200")
@@ -26,11 +26,11 @@ main.home
 				+lazyPicture({ src: `${baseDir}images/line1.png`}).line__pc
 				+lazyPicture({src: `${baseDir}images/line1m.png`}).line__mobile
 
-	section.skills.js-scrollspy#about(data-scroll-section data-scroll-id="about")
+	section.skills.js-scrollspy#about(data-scroll-section data-scroll-id="about" data-scroll-offset="200")
 		.container
 			.skills__row.is-animate(data-scroll data-scroll-offset="200")
 				.skills__col
-					h2.skills__title(data-scroll data-scroll-repeat data-scroll-call="toggleAbout") Опыт работы
+					h2.skills__title(data-scroll data-scroll-repeat data-scroll-call="toggleAbout" data-scroll-offset="200") Опыт работы
 					each object in data.experience
 						.skills__experience
 							.skills__experience-date
@@ -78,9 +78,9 @@ main.home
 				+lazyPicture({src: `${baseDir}images/line2.png`}).line__pc
 				+lazyPicture({src: `${baseDir}images/line2m.png`}).line__mobile
 
-	section.skill.js-scrollspy(data-scroll-section)
-		.container.is-animate#skills(data-scroll data-scroll-offset="200")
-			h2.skill__head(data-scroll data-scroll-repeat data-scroll-call="toggleSkills") Навыки
+	section.skill.js-scrollspy#skills(data-scroll-section)
+		.container.is-animate(data-scroll)
+			h2.skill__head(data-scroll data-scroll-repeat data-scroll-call="toggleSkills" data-scroll-offset="200") Навыки
 			.skill__row
 				each object in data.skill
 					.skill__item
@@ -88,7 +88,7 @@ main.home
 							!= object.title
 						.skill__description
 							!= object.description
-	a.top(href="#top" data-scroll-to)
+	a.top(href="#resume" data-scroll-to)
 		.top__percent 0 %
 		+svg('arrow-top').top__arrow.is-hidden
 		svg.top__svg(width="40" height="40" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg")
